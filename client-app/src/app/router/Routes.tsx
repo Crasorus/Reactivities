@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import ActivityDashboard from "../../features/activities/dashboard/ActivityDashboard";
-import ActivityDetails from "../../features/activities/Details/activityDetails";
+import ActivityDetails from "../../features/activities/Details/ActivityDetails";
 import ActivityForm from "../../features/activities/form/activityForm";
 import HomePage from "../../features/home/HomePage";
 import App from "../layout/App";
