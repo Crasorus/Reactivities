@@ -77,3 +77,6 @@ C:\Users\Barry Moore\Projects\demo\Reactivities\API\bin\Debug\net7.0\MediatR.Con
 C:\Users\Barry Moore\Projects\demo\Reactivities\API\bin\Debug\net7.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Barry Moore\Projects\demo\Reactivities\API\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\Barry Moore\Projects\demo\Reactivities\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Barry Moore\Projects\demo\Reactivities\API\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\Barry Moore\Projects\demo\Reactivities\API\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+C:\Users\Barry Moore\Projects\demo\Reactivities\API\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
