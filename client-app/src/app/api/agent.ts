@@ -1,7 +1,10 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import { request } from 'http';
+import { config } from 'process';
 import { toast } from 'react-toastify';
 
 import { Activity } from '../models/activity';
+import { User, UserFormValues } from '../models/user';
 import { router } from '../router/Routes';
 import { store } from '../stores/store';
 
@@ -58,6 +61,13 @@ axios.interceptors.response.use(async response => {
 
 const responsebody = <T> (response: AxiosResponse<T>) => response.data;
 
+axios.interceptors.request.use(config =>{
+    const token = store.commonStore.token;
+    if (token && config.headers) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+})
+
+
 const requests ={
     get: <T> (url:string) => axios.get<T>(url).then(responsebody),
     post: <T> (url:string, body: {}) => axios.post<T>(url, body).then(responsebody),
@@ -73,8 +83,15 @@ const Activities = {
     delete: (id:string) => axios.delete<Activity>(`/activities/${id}`)
 }
 
+const Account ={
+    current: () => requests.get<User>('/account'),
+    login: (User: UserFormValues) => requests.post<User>('/account/login', User),
+    register: (user: UserFormValues) => requests.post<User>('/account/register', user)
+}
+
 const agent = {
-    Activities
+    Activities,
+    Account
 }
 
 export default agent;
