@@ -44,7 +44,7 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.Username))
+            if (await _userManager.Users.AnyAsync(x => x.UserName == registerDto.UserName))
             {
                 ModelState.AddModelError("email", "Email Taken");
                 return ValidationProblem();
@@ -52,7 +52,7 @@ namespace API.Controllers
 
             if (await _userManager.Users.AnyAsync(x => x.Email == registerDto.Email))
             {
-                ModelState.AddModelError("username", "UserName Taken");
+                ModelState.AddModelError("userName", "UserName Taken");
                 return ValidationProblem();
             }
 
@@ -60,7 +60,7 @@ namespace API.Controllers
             {
                 DisplayName = registerDto.DisplayName,
                 Email = registerDto.Email,
-                UserName = registerDto.Username
+                UserName = registerDto.UserName
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
